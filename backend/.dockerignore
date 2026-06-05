@@ -1,5 +1,4 @@
-# Ignore source code, tests, and configuration
-src/
+# Ignore IDE and system configurations
 .git/
 .github/
 .idea/
