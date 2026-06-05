@@ -89,6 +89,10 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      - name: Lowercase the repository name
+        run: |
+          echo "REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       # Log in to GitHub Container Registry (GHCR) using GITHUB_TOKEN
       - name: Log in to GitHub Container Registry (GHCR)
         uses: docker/login-action@v3
@@ -117,8 +121,8 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/backend:latest
-            ghcr.io/${{ github.repository }}/backend:${{ github.sha }}
+            ghcr.io/${{ env.REPO_LOWER }}/backend:latest
+            ghcr.io/${{ env.REPO_LOWER }}/backend:${{ github.sha }}
 
       # Build and push Frontend Image
       - name: Build and Push Frontend Image
@@ -128,5 +132,5 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/frontend:latest
-            ghcr.io/${{ github.repository }}/frontend:${{ github.sha }}
+            ghcr.io/${{ env.REPO_LOWER }}/frontend:latest
+            ghcr.io/${{ env.REPO_LOWER }}/frontend:${{ github.sha }}
