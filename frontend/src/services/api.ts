@@ -6,7 +6,7 @@
 import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
 // Default base configuration
-const DEFAULT_API_URL = 'http://localhost:8080';
+const DEFAULT_API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 const DEFAULT_USER_ID = '11111111-1111-1111-1111-111111111111';
 
 // Dynamic keys stored in localStorage for UI toggles / configuration
