@@ -1,0 +1,58 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres-tasks2db-compose
+    environment:
+      POSTGRES_DB: tasks2db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    # Ensures other services only start when Postgres is ready to receive connections
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d tasks2db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - task-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: taskmanagement-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tasks2db?options=-c%20timezone=UTC
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      # You can also pass JVM Options to docker-compose if needed:
+      JAVA_OPTS: "-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:+UseG1GC"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - task-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: taskmanagement-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - task-network
+
+volumes:
+  postgres_data:
+
+networks:
+  task-network:
+    driver: bridge
