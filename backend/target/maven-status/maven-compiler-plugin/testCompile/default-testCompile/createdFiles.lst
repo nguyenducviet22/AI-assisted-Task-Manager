@@ -1,0 +1,14 @@
+com\example\taskmanagement\task\integration\TaskApiIntegrationTest.class
+com\example\taskmanagement\task\controller\TaskControllerTest.class
+com\example\taskmanagement\task\service\TaskServiceImplTest$GetTaskByIdTests.class
+com\example\taskmanagement\task\controller\TaskControllerTest$GetTaskByIdTests.class
+com\example\taskmanagement\task\repository\TaskRepositoryTest.class
+com\example\taskmanagement\task\service\TaskServiceImplTest$CreateTaskTests.class
+com\example\taskmanagement\task\service\TaskServiceImplTest$GetTaskListTests.class
+com\example\taskmanagement\task\service\TaskServiceImplTest$DeleteTaskTests.class
+com\example\taskmanagement\task\service\TaskServiceImplTest$UpdateTaskTests.class
+com\example\taskmanagement\task\controller\TaskControllerTest$UpdateTaskTests.class
+com\example\taskmanagement\task\controller\TaskControllerTest$CreateTaskTests.class
+com\example\taskmanagement\task\controller\TaskControllerTest$DeleteTaskTests.class
+com\example\taskmanagement\task\service\TaskServiceImplTest.class
+com\example\taskmanagement\task\controller\TaskControllerTest$GetTaskListTests.class

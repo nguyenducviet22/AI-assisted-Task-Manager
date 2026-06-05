@@ -1,0 +1,5 @@
+# Created at 2026-05-31T15:41:12.271
+Boot Manifest-JAR contains absolute paths in classpath 'D:\FPTU\8.Summer26\AI Coding Agent\Antigravity\AI-Era\S2\ai-task-manager-fsdlc\backend\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

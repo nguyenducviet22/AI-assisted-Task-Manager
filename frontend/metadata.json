@@ -1,0 +1,6 @@
+{
+  "name": "TaskFlow",
+  "description": "Executive Suite Task Management System built with React, Axios, and Tailwind CSS, adhering to custom Glassmorphic Luminous Flux designs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
